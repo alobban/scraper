@@ -14,6 +14,9 @@ end
 giftCard = {}
 temp = {}
 
+# pull each listing under the class names
+# 'productListing-odd' and 'productListing-even'
+#
 def parse (node, oeCount)
 	hash = {}
 	pid = node['id'].split('_').last
@@ -52,8 +55,11 @@ html.css("#leftProductsListing").each do |node|
 		temp[position] = parse node, even
 		even += 2
 	end
-	puts Hash[temp.sort]
-	# puts giftCard = temp.to_json
+
+	# Sort and format output in JSON
+	#
+	# puts Hash[temp.sort]
+	puts giftCard = Hash[temp.sort].to_json
 	puts " \n\n Pretify \n\n"
-	puts JSON.pretty_generate(temp.sort)
+	puts JSON.pretty_generate(Hash[temp.sort])
 end
