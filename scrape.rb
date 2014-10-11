@@ -6,7 +6,7 @@ require 'json'
 require 'curb'
 require 'nokogiri'
 
-http = Curl.get("http://www.cardcash.com/bargain-bag/amazon/") do |http|
+http = Curl.get("http://www.cardcash.com/buy-discounted-gift-cards/target/") do |http|
 	http.headers['User-Agent'] = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.101 Safari/537.36"
 end
 
@@ -31,9 +31,10 @@ html.css("#leftProductsListing").each do |node|
 		odd += 2
 		# puts temp.to_json
 		# p hash
-		temp[pid] = hash.to_json
+		temp[pid] = hash
 		
 	end
 	puts giftCard = temp.to_json
-	# puts JSON.pretty_generate(giftCard)
+	puts " \n\n Pretify \n\n"
+	puts JSON.pretty_generate(temp)
 end
