@@ -52,7 +52,7 @@ html.css("#leftProductsListing").each do |node|
 		temp[position] = parse node, even
 		even += 2
 	end
-	puts temp.sort
+	puts Hash[temp.sort]
 	# puts giftCard = temp.to_json
 	puts " \n\n Pretify \n\n"
 	puts JSON.pretty_generate(temp.sort)
