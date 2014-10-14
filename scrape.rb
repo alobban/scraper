@@ -13,7 +13,7 @@ http = Curl.get("http://www.cardcash.com/merchants/") do |http|
 end
 
 # hash = {}
-giftCards = {}
+giftCards = []
 counter = 1
 
 html = Nokogiri::HTML(http.body_str)
@@ -24,7 +24,7 @@ html.css("#merchants_list").each do |node|
 		cards_section.css("a").each do |node|
 			url = node['href'].split('?').first
 			
-			# giftCards[counter] = scraper (url)
+			# giftCards << scraper (url)
 			puts "\n", counter, "\n"
 			puts scraper url
 			counter += 1
